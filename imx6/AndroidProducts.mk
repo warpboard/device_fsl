@@ -1,5 +1,7 @@
 #Copyright (C) 2008 The Android Open Source Project
 #
+# Copyright (C) 2014 Kynetics, LLC
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -33,3 +35,5 @@ PRODUCT_MAKEFILES := \
   $(LOCAL_DIR)/sabreauto_6q.mk \
   $(LOCAL_DIR)/sabresd_6dq.mk \
   $(LOCAL_DIR)/hdmidongle_6dq.mk \
+  $(LOCAL_DIR)/warpboard.mk \
+  $(LOCAL_DIR)/warpboard_nfs.mk
