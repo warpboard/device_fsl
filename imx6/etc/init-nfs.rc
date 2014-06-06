@@ -516,14 +516,15 @@ on property:ro.kernel.qemu=1
     start adbd
 
 service servicemanager /system/bin/servicemanager
-    class core
+    disabled
+    class main
     user system
     group system
-    critical
-    onrestart restart zygote
-    onrestart restart media
-    onrestart restart surfaceflinger
-    onrestart restart drm
+#    critical
+#    onrestart restart zygote
+#    onrestart restart media
+#    onrestart restart surfaceflinger
+#    onrestart restart drm
 
 service vold /system/bin/vold
     class core
@@ -540,12 +541,14 @@ service debuggerd /system/bin/debuggerd
     class main
 
 service surfaceflinger /system/bin/surfaceflinger
+    disabled
     class main
     user system
     group graphics drmrpc
     onrestart restart zygote
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
+    disabled
     class main
     socket zygote stream 660 root system
     onrestart write /sys/android_power/request_state wake
@@ -554,11 +557,13 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
     onrestart restart netd
 
 service drm /system/bin/drmserver
+    disabled
     class main
     user drm
     group drm system inet drmrpc
 
 service media /system/bin/mediaserver
+    disabled
     class main
     user media
     group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
@@ -611,6 +616,7 @@ service mtpd /system/bin/mtpd
     oneshot
 
 service keystore /system/bin/keystore /data/misc/keystore
+    disabled
     class main
     user keystore
     group keystore drmrpc
