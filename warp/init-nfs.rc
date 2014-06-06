@@ -1,7 +1,7 @@
 import init.${ro.hardware}.usb.rc
 
 on init
-    start watchdogd
+    #start watchdogd
 
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
