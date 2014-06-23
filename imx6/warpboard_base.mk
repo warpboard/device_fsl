@@ -20,7 +20,8 @@ PRODUCT_COPY_FILES += \
 	device/fsl/common/input/imx-keypad.idc:system/usr/idc/imx-keypad.idc \
 	device/fsl/common/input/imx-keypad.kl:system/usr/keylayout/imx-keypad.kl \
 	device/fsl/warp/audio_policy.conf:system/etc/audio_policy.conf \
-	device/fsl/warp/audio_effects.conf:system/vendor/etc/audio_effects.conf
+	device/fsl/warp/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+	device/fsl/common/media_codecs.xml:system/etc/media_codecs.xml
 
 DEVICE_PACKAGE_OVERLAYS := device/fsl/warp/overlay
 
