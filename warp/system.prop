@@ -1,0 +1,3 @@
+
+# Disable navigation and buttons bar
+qemu.hw.mainkeys=1
