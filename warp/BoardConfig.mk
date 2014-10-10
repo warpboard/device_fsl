@@ -27,18 +27,39 @@ PRODUCT_MODEL := WaRP
 
 
 # UNITE is a virtual device support both atheros and realtek wifi(ar6103 and rtl8723as)
-BOARD_WLAN_DEVICE            := UNITE
-WPA_SUPPLICANT_VERSION       := VER_0_8_UNITE
-TARGET_KERNEL_MODULES        := \
-                                kernel_imx/drivers/net/wireless/rtl8723as/8723as.ko:system/lib/modules/8723as.ko \
-                                kernel_imx/net/wireless/cfg80211.ko:system/lib/modules/cfg80211_realtek.ko
-BOARD_WPA_SUPPLICANT_DRIVER  := NL80211
-BOARD_HOSTAPD_DRIVER         := NL80211
+#BOARD_WLAN_DEVICE            := UNITE
+#WPA_SUPPLICANT_VERSION       := VER_0_8_UNITE
+#TARGET_KERNEL_MODULES        := \
+#                                kernel_imx/drivers/net/wireless/rtl8723as/8723as.ko:system/lib/modules/8723as.ko \
+#                                kernel_imx/net/wireless/cfg80211.ko:system/lib/modules/cfg80211_realtek.ko
+#BOARD_WPA_SUPPLICANT_DRIVER  := NL80211
+#BOARD_HOSTAPD_DRIVER         := NL80211
 
-BOARD_HOSTAPD_PRIVATE_LIB_QCOM              := lib_driver_cmd_qcwcn
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB_QCOM       := lib_driver_cmd_qcwcn
-BOARD_HOSTAPD_PRIVATE_LIB_RTL               := lib_driver_cmd_rtl
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB_RTL        := lib_driver_cmd_rtl
+#BOARD_HOSTAPD_PRIVATE_LIB_QCOM              := lib_driver_cmd_qcwcn
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB_QCOM       := lib_driver_cmd_qcwcn
+#BOARD_HOSTAPD_PRIVATE_LIB_RTL               := lib_driver_cmd_rtl
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB_RTL        := lib_driver_cmd_rtl
+
+# BROADCOM defines for BCM4330-based module --- type SH
+BOARD_WLAN_DEVICE                := bcmdhd
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+TARGET_KERNEL_MODULES            := kernel_imx/drivers/net/wireless/bcmdhd/bcmdhd.ko:system/lib/modules/bcmdhd.ko
+
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_HOSTAPD_DRIVER             := NL80211
+
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcmdhd.ko"
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA          := "/system/vendor/firmware/fw_bcmdhd.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/system/vendor/firmware/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P          := "/system/vendor/firmware/fw_bcmdhd.bin"
+WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/vendor/firmware/fw_bcmdhd.bin nvram_path=/system/etc/wifi/bcmdhd.cal iface_name=wlan0"
+WIFI_DRIVER_MODULE_AP_ARG        := "firmware_path=/system/vendor/firmware/fw_bcmdhd_apsta.bin nvram_path=/system/etc/wifi/bcmdhd.cal iface_name=wlan0"
+WIFI_BAND                        := 802_11_BG
+
 #for intel vendor
 ifeq ($(BOARD_WLAN_VENDOR),INTEL)
 BOARD_HOSTAPD_PRIVATE_LIB                := private_lib_driver_cmd
