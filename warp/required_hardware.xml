@@ -22,6 +22,7 @@
     <feature name="android.hardware.camera" />
     <feature name="android.hardware.camera.front" />
     <feature name="android.hardware.camera.flash" />
+    <feature name="android.hardware.bluetooth" />
     <feature name="android.hardware.touchscreen" />
     <feature name="android.hardware.touchscreen.multitouch" />
     <feature name="android.hardware.touchscreen.multitouch.distinct" />

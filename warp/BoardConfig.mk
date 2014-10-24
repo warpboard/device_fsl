@@ -91,6 +91,10 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 # atheros 3k BT
 BOARD_USE_AR3K_BLUETOOTH := false
 
+# Murata Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := /device/fsl/warp/bluetooth
 USE_ION_ALLOCATOR := false
 USE_GPU_ALLOCATOR := true
 
@@ -101,5 +105,5 @@ IMX_CAMERA_HAL_V2 := false
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 TARGET_KERNEL_DEFCONF := imx6sl_warp_android_defconfig
-BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 androidboot.hardware=freescale csi ft5x06_ts.calibration=65536,0,0,0,65536,0,79136
+BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 androidboot.hardware=freescale csi bluetooth ft5x06_ts.calibration=65536,0,0,0,65536,0,79136
 TARGET_BOOTLOADER_CONFIG := mx6sl:warpandroid_config
