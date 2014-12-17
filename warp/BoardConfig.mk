@@ -25,6 +25,9 @@ endif # BUILD_TARGET_FS
 TARGET_BOOTLOADER_BOARD_NAME := WaRP
 PRODUCT_MODEL := WaRP
 
+# Install touchscreen configuration file
+PRODUCT_COPY_FILES +=   \
+	device/fsl/common/input/eGalax_Touch_Screen.idc:system/usr/idc/ft5x06.idc
 
 # UNITE is a virtual device support both atheros and realtek wifi(ar6103 and rtl8723as)
 #BOARD_WLAN_DEVICE            := UNITE
@@ -98,5 +101,5 @@ IMX_CAMERA_HAL_V2 := false
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 TARGET_KERNEL_DEFCONF := imx6sl_warp_android_defconfig
-BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 androidboot.hardware=freescale csi
+BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init androidboot.console=ttymxc0 androidboot.hardware=freescale csi ft5x06_ts.calibration=65536,0,0,0,65536,0,79136
 TARGET_BOOTLOADER_CONFIG := mx6sl:warpandroid_config
