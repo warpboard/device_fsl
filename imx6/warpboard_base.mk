@@ -1,8 +1,7 @@
 # This is the WaRP Android Reference Design platform
 # It will inherit from FSL core product which in turn inherit from Google generic
 
-$(call inherit-product, device/fsl/imx6/imx6.mk)
-$(call inherit-product-if-exists,vendor/google/products/gms.mk)
+$(call inherit-product, device/fsl/imx6/imx6_minimal.mk)
 $(call inherit-product-if-exists,hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
 ifneq ($(wildcard device/fsl/evk_6dq/fstab_nand.freescale),)
